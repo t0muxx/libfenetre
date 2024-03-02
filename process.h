@@ -6,9 +6,9 @@
 namespace process {
 PPEB getPEB();
 
-uintptr_t get_module_ba(DWORD pid, const wchar_t *modName);
-DWORD pid_from_windows_title(LPCWSTR windowTitle);
-DWORD pid_from_processname(LPCWSTR execName);
+uintptr_t get_module_ba(DWORD pid, const char *modName);
+DWORD pid_from_windows_title(LPCSTR windowTitle);
+DWORD pid_from_processname(LPCSTR execName);
 
 } // namespace process
 
