@@ -1,5 +1,5 @@
-#ifndef PROCESS__H
-#define PROCESS__H
+#ifndef __PROCESS__H
+#define __PROCESS__H
 
 #include "peb.h"
 

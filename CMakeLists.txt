@@ -10,7 +10,8 @@ project(
 add_library(${PROJECT_NAME} STATIC)
 
 target_sources(${PROJECT_NAME}
-    PRIVATE
+    PUBLIC
+    dll_injection.cpp
     process.cpp
     errors.cpp
 )
