@@ -1,17 +1,35 @@
 #include <windows.h>
 
 #include <cstdio>
+#include <iostream>
 #include <memoryapi.h>
 #include <minwindef.h>
 #include <processthreadsapi.h>
 #include <string>
 #include <winnt.h>
 
+
 #include "errors.h"
 
 namespace injection {
 
 using namespace errors;
+
+int reopen_streams() {
+  if (!AllocConsole()) {
+    return (-1);
+  }
+  FILE *fDummy;
+  freopen_s(&fDummy, "CONOUT$", "w", stdout);
+  freopen_s(&fDummy, "CONOUT$", "w", stderr);
+  freopen_s(&fDummy, "CONIN$", "r", stdin);
+  std::cout.clear();
+  std::clog.clear();
+  std::cerr.clear();
+  std::cin.clear();
+
+  return (0);
+}
 
 static BOOL inject_into_handle(HANDLE proc, std::string dllPath) {
 

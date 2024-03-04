@@ -7,7 +7,7 @@
 
 namespace injection {
 int inject_dll(DWORD pid, std::string dllPath);
-
-}
+int reopen_streams();
+} // namespace injection
 
 #endif

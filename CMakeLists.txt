@@ -14,4 +14,5 @@ target_sources(${PROJECT_NAME}
     dll_injection.cpp
     process.cpp
     errors.cpp
+    memory.cpp
 )
